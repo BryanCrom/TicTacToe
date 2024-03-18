@@ -1,35 +1,35 @@
 public class Spot {
-    int x;
-    int y;
-    String player;
+    int row;
+    int col;
+    char player;
 
-    public Spot(int x, int y, String player){
-        this.setX(x);
-        this.setY(y);
+    public Spot(int row, int col, char player){
+        this.setRow(row);
+        this.setCol(col);
         this.setPlayer(player);
     }
 
-    public int getX() {
-        return x;
+    public int getRow() {
+        return row;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public int getY() {
-        return y;
+    public int getCol() {
+        return col;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setCol(int col) {
+        this.col = col;
     }
 
-    public String getPlayer() {
+    public char getPlayer() {
         return player;
     }
 
-    public void setPlayer(String player) {
-        this.player = player;
+    public void setPlayer(char player) {
+    this.player = player;
     }
 }
