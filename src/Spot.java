@@ -1,7 +1,7 @@
 public class Spot {
-    int row;
-    int col;
-    char player;
+    private int row;
+    private int col;
+    private char player;
 
     public Spot(int row, int col, char player){
         this.setRow(row);

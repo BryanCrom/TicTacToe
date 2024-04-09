@@ -1,7 +1,9 @@
 public class Board{
-    Spot[][] board;
+    private Spot[][] board;
+    private boolean turn;
 
     public Board(){
+        turn = true;
         this.clearBoard();
     }
 
@@ -21,5 +23,16 @@ public class Board{
             System.out.println("This position does not exist on the board");
         }
         return null;
+    }
+
+    public void pickSpot(int row, int col){
+        Spot spot = getSpot(row, col);
+        turn = !turn;
+        if(turn){
+            spot.setPlayer('X');
+        }
+        else {
+            spot.setPlayer('O');
+        }
     }
 }
