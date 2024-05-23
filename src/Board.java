@@ -1,9 +1,10 @@
 public class Board{
-    private Spot[][] board;
+    private final Spot[][] board;
     private boolean turn;
 
     public Board(){
-        turn = true;
+        turn = false;
+        this.board = new Spot[3][3];
         this.clearBoard();
     }
 
@@ -25,14 +26,22 @@ public class Board{
         return null;
     }
 
-    public void pickSpot(int row, int col){
+    public void setSpot(int row, int col){
         Spot spot = getSpot(row, col);
         turn = !turn;
+        spot.setPlayer(getTurn());
+    }
+
+    public char getTurn() {
         if(turn){
-            spot.setPlayer('X');
+            return 'X';
         }
         else {
-            spot.setPlayer('O');
+            return 'O';
         }
+    }
+
+    public void setTurn(boolean turn) {
+        this.turn = turn;
     }
 }
