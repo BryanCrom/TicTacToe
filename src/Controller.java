@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Controller extends JFrame {
     private Board board;
@@ -24,6 +25,7 @@ public class Controller extends JFrame {
                 view.getTopLeft().setVisible(false);
                 view.getTopLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -35,6 +37,7 @@ public class Controller extends JFrame {
                 view.getTopCenter().setVisible(false);
                 view.getTopCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -46,6 +49,7 @@ public class Controller extends JFrame {
                 view.getTopRight().setVisible(false);
                 view.getTopRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -57,6 +61,7 @@ public class Controller extends JFrame {
                 view.getMiddleLeft().setVisible(false);
                 view.getMiddleLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -68,6 +73,7 @@ public class Controller extends JFrame {
                 view.getMiddleCenter().setVisible(false);
                 view.getMiddleCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -79,6 +85,7 @@ public class Controller extends JFrame {
                 view.getMiddleRight().setVisible(false);
                 view.getMiddleRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -90,6 +97,7 @@ public class Controller extends JFrame {
                 view.getBottomLeft().setVisible(false);
                 view.getBottomLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -101,6 +109,7 @@ public class Controller extends JFrame {
                 view.getBottomCenter().setVisible(false);
                 view.getBottomCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
 
@@ -112,6 +121,7 @@ public class Controller extends JFrame {
                 view.getBottomRight().setVisible(false);
                 view.getBottomRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
+                view.getResults().setText(board.checkResults());
             }
         });
     }

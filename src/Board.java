@@ -44,4 +44,45 @@ public class Board{
     public void setTurn(boolean turn) {
         this.turn = turn;
     }
+
+    public String checkResults(){
+        if(getSpot(0,0).getPlayer() != ' '){
+            if(getSpot(0,0).getPlayer() == getSpot(0,1).getPlayer() && getSpot(0,1).getPlayer() == getSpot(0,2).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+            if(getSpot(0,0).getPlayer() == getSpot(1,0).getPlayer() && getSpot(1,0).getPlayer() == getSpot(2,0).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+            if(getSpot(0,0).getPlayer() == getSpot(1,1).getPlayer() && getSpot(1,1).getPlayer() == getSpot(2,2).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+        }
+        if(getSpot(1,1).getPlayer() != ' '){
+            if(getSpot(1,1).getPlayer() == getSpot(0,1).getPlayer() && getSpot(0,1).getPlayer() == getSpot(2,1).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+            if(getSpot(1,1).getPlayer() == getSpot(1,0).getPlayer() && getSpot(1,0).getPlayer() == getSpot(1,2).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+            if(getSpot(1,1).getPlayer() == getSpot(0,2).getPlayer() && getSpot(0,2).getPlayer() == getSpot(2,0).getPlayer()){
+                return getSpot(1,1).getPlayer() + " Wins";
+            }
+        }
+        if(getSpot(2,2).getPlayer() != ' '){
+            if(getSpot(2,2).getPlayer() == getSpot(2,1).getPlayer() && getSpot(2,1).getPlayer() == getSpot(2,0).getPlayer()){
+                return getSpot(0,0).getPlayer() + " Wins";
+            }
+            if(getSpot(2,2).getPlayer() == getSpot(1,2).getPlayer() && getSpot(1,2).getPlayer() == getSpot(0,2).getPlayer()){
+                return getSpot(2,2).getPlayer() + " Wins";
+            }
+        }
+        for(int row = 0; row < 3; row++){
+            for(int col = 0; col < 3; col++){
+                if(getSpot(row,col).getPlayer() == ' '){
+                    return "";
+                };
+            }
+        }
+        return "Draw";
+    }
 }
