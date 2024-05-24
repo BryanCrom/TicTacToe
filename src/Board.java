@@ -3,7 +3,7 @@ public class Board{
     private boolean turn;
 
     public Board(){
-        turn = false;
+        turn = true;
         this.board = new Spot[3][3];
         this.clearBoard();
     }
@@ -28,8 +28,8 @@ public class Board{
 
     public void setSpot(int row, int col){
         Spot spot = getSpot(row, col);
-        turn = !turn;
         spot.setPlayer(getTurn());
+        turn = !turn;
     }
 
     public char getTurn() {
