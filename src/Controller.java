@@ -1,16 +1,17 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 public class Controller extends JFrame {
     private Board board;
     private View view;
+    private char winState;
 
     public Controller(String title) {
         super(title);
         this.board = new Board();
         this.view = new View();
+        this.setWinState(' ');
 
         this.getContentPane().add(this.view);
         this.setResizable(false);
@@ -25,7 +26,7 @@ public class Controller extends JFrame {
                 view.getTopLeft().setVisible(false);
                 view.getTopLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -37,7 +38,7 @@ public class Controller extends JFrame {
                 view.getTopCenter().setVisible(false);
                 view.getTopCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -49,7 +50,7 @@ public class Controller extends JFrame {
                 view.getTopRight().setVisible(false);
                 view.getTopRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -61,7 +62,7 @@ public class Controller extends JFrame {
                 view.getMiddleLeft().setVisible(false);
                 view.getMiddleLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -73,7 +74,7 @@ public class Controller extends JFrame {
                 view.getMiddleCenter().setVisible(false);
                 view.getMiddleCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -85,7 +86,7 @@ public class Controller extends JFrame {
                 view.getMiddleRight().setVisible(false);
                 view.getMiddleRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -97,7 +98,7 @@ public class Controller extends JFrame {
                 view.getBottomLeft().setVisible(false);
                 view.getBottomLeftInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -109,7 +110,7 @@ public class Controller extends JFrame {
                 view.getBottomCenter().setVisible(false);
                 view.getBottomCenterInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
 
@@ -121,8 +122,35 @@ public class Controller extends JFrame {
                 view.getBottomRight().setVisible(false);
                 view.getBottomRightInfo().setVisible(true);
                 view.getTurnInfo().setText(board.getTurn() + "'s Turn");
-                view.getResults().setText(board.checkResults());
+                displayResults();
             }
         });
+    }
+
+    public char getWinState() {
+        return winState;
+    }
+
+    public void setWinState(char winState) {
+        this.winState = winState;
+    }
+
+    public void displayResults(){
+        setWinState(this.board.checkResults());
+        if(this.winState == 'D'){
+            this.view.getResults().setText("Draw");
+        }
+        else if(this.winState == 'X' || this.winState == 'O'){
+            this.view.getResults().setText(winState + "'s Wins");
+            this.view.getTopLeft().setVisible(false);
+            this.view.getTopCenter().setVisible(false);
+            this.view.getTopRight().setVisible(false);
+            this.view.getMiddleLeft().setVisible(false);
+            this.view.getMiddleCenter().setVisible(false);
+            this.view.getMiddleRight().setVisible(false);
+            this.view.getBottomLeft().setVisible(false);
+            this.view.getBottomCenter().setVisible(false);
+            this.view.getBottomRight().setVisible(false);
+        }
     }
 }
