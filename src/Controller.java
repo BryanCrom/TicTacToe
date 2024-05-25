@@ -125,6 +125,13 @@ public class Controller extends JFrame {
                 displayResults();
             }
         });
+
+        this.view.getPlayAgain().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetGame();
+            }
+        });
     }
 
     public char getWinState() {
@@ -139,18 +146,44 @@ public class Controller extends JFrame {
         setWinState(this.board.checkResults());
         if(this.winState == 'D'){
             this.view.getResults().setText("Draw");
+            this.view.getPlayAgain().setVisible(true);
+            this.view.getTurnInfo().setText("");
         }
         else if(this.winState == 'X' || this.winState == 'O'){
             this.view.getResults().setText(winState + "'s Wins");
-            this.view.getTopLeft().setVisible(false);
-            this.view.getTopCenter().setVisible(false);
-            this.view.getTopRight().setVisible(false);
-            this.view.getMiddleLeft().setVisible(false);
-            this.view.getMiddleCenter().setVisible(false);
-            this.view.getMiddleRight().setVisible(false);
-            this.view.getBottomLeft().setVisible(false);
-            this.view.getBottomCenter().setVisible(false);
-            this.view.getBottomRight().setVisible(false);
+            setButtons(false);
+            this.view.getPlayAgain().setVisible(true);
+            this.view.getTurnInfo().setText("");
         }
+    }
+
+    public void setButtons(boolean bool){
+        this.view.getTopLeft().setVisible(bool);
+        this.view.getTopCenter().setVisible(bool);
+        this.view.getTopRight().setVisible(bool);
+        this.view.getMiddleLeft().setVisible(bool);
+        this.view.getMiddleCenter().setVisible(bool);
+        this.view.getMiddleRight().setVisible(bool);
+        this.view.getBottomLeft().setVisible(bool);
+        this.view.getBottomCenter().setVisible(bool);
+        this.view.getBottomRight().setVisible(bool);
+    }
+
+    public void resetGame(){
+        setButtons(true);
+        this.view.getTopLeftInfo().setVisible(false);
+        this.view.getTopCenterInfo().setVisible(false);
+        this.view.getTopRightInfo().setVisible(false);
+        this.view.getMiddleLeftInfo().setVisible(false);
+        this.view.getMiddleCenterInfo().setVisible(false);
+        this.view.getMiddleRightInfo().setVisible(false);
+        this.view.getBottomLeftInfo().setVisible(false);
+        this.view.getBottomCenterInfo().setVisible(false);
+        this.view.getBottomRightInfo().setVisible(false);
+        this.view.getResults().setText("");
+        this.board.setTurn(true);
+        this.board.clearBoard();
+        this.view.getTurnInfo().setText("X's Turn");
+        this.view.getPlayAgain().setVisible(false);
     }
 }

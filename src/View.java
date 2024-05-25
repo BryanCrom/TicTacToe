@@ -34,6 +34,8 @@ public class View extends JPanel {
 
     private JLabel results;
 
+    private JButton playAgain;
+
     public View() {
         setLayout(null);
 
@@ -163,8 +165,13 @@ public class View extends JPanel {
         this.results = new JLabel("", SwingConstants.CENTER);
         this.results.setVisible(true);
         this.results.setFont(new Font("Arial", Font.BOLD, 20));
-        this.results.setBounds(0, 725, 650, 100);
+        this.results.setBounds(0, 700, 650, 100);
         this.add(this.results);
+
+        this.playAgain = new JButton("Play Again");
+        this.playAgain.setVisible(false);
+        this.playAgain.setBounds(275,790, 100, 40);
+        this.add(this.playAgain);
     }
 
     @Override
@@ -344,5 +351,13 @@ public class View extends JPanel {
 
     public void setResults(JLabel results) {
         this.results = results;
+    }
+
+    public JButton getPlayAgain() {
+        return playAgain;
+    }
+
+    public void setPlayAgain(JButton playAgain) {
+        this.playAgain = playAgain;
     }
 }
